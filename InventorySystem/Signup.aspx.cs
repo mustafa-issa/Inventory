@@ -32,7 +32,7 @@ namespace InventorySystem
 
             MD5 md5Hash = MD5.Create();
             string hash = GetMd5Hash(md5Hash, Password);
-            //.....
+            
 
             ObjBO.UserName = UserName;
             ObjBO.Password = hash;
