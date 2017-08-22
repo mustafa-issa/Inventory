@@ -23,7 +23,7 @@ namespace InventorySystem
         {
 
 
-            UserBO sign = new UserBO();
+            UserBO ObjBO = new UserBO();
             string UserName = exampleInputUN1.Value;
             string Email = Emailtxt.Value;
             string FullName = FN.Value;
@@ -34,14 +34,14 @@ namespace InventorySystem
             string hash = GetMd5Hash(md5Hash, Password);
             //.....
 
-            sign.UserName = UserName;
-            sign.Password = hash;
-            sign.Email = Email;
-            sign.FullName = FullName;
-            sign.Status = 0;
-            sign.InsertDate = DateTime.Now;
+            ObjBO.UserName = UserName;
+            ObjBO.Password = hash;
+            ObjBO.Email = Email;
+            ObjBO.FullName = FullName;
+            ObjBO.Status = 0;
+            ObjBO.InsertDate = DateTime.Now;
             UserBL objUBL = new UserBL();
-            objUBL.SaveUserRegisrationBL(sign);
+            objUBL.SaveUserRegisrationBL(ObjBO);
             //if (sign.checkUser())
             //{
             //    Label2.Text = "User alredy exists";
