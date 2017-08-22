@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bussinesslogic;
+using BussinessObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -19,10 +21,9 @@ namespace InventorySystem
 
         protected void signupbtn_Click(object sender, EventArgs e)
         {
-            
 
-            
-            LinSupClass sign = new LinSupClass();
+
+            UserBO sign = new UserBO();
             string UserName = exampleInputUN1.Value;
             string Email = Emailtxt.Value;
             string FullName = FN.Value;
@@ -39,19 +40,21 @@ namespace InventorySystem
             sign.FullName = FullName;
             sign.Status = 0;
             sign.InsertDate = DateTime.Now;
-            if (sign.checkUser())
-            {
-                Label2.Text = "User alredy exists";
-            }
-            else if (sign.signin()!=0)
-            {
-                Session["User"] = UserName;
-                Response.Redirect("Products1.aspx");
-            }
-            else
-            {
-                Label1.Text = "Error , Try Again";
-            }
+            UserBL objUBL = new UserBL();
+            objUBL.SaveUserRegisrationBL(sign);
+            //if (sign.checkUser())
+            //{
+            //    Label2.Text = "User alredy exists";
+            //}
+            //else if (sign.signin()!=0)
+            //{
+            //    Session["User"] = UserName;
+            //    Response.Redirect("Products1.aspx");
+            //}
+            //else
+            //{
+            //    Label1.Text = "Error , Try Again";
+            //}
             
         }
 

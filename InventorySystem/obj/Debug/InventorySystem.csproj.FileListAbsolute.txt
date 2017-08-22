@@ -58,3 +58,39 @@ D:\295\InventorySystem\InventorySystem\bin\DotNetOpenAuth.AspNet.xml
 D:\295\InventorySystem\InventorySystem\obj\Debug\InventorySystem.csprojResolveAssemblyReference.cache
 D:\295\InventorySystem\InventorySystem\obj\Debug\InventorySystem.dll
 D:\295\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\InventorySystem.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\InventorySystem.pdb
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\Antlr3.Runtime.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.Core.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\EntityFramework.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\System.Web.Optimization.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\System.Web.Providers.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\WebGrease.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\EntityFramework.xml
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.Core.xml
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\obj\Debug\InventorySystem.csprojResolveAssemblyReference.cache
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\obj\Debug\InventorySystem.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\Bussinesslogic.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\BussinessObject.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DataAccess.dll
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\Bussinesslogic.pdb
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\BussinessObject.pdb
+C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DataAccess.pdb
