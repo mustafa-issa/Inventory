@@ -94,3 +94,39 @@ C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\
 C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\Bussinesslogic.pdb
 C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\BussinessObject.pdb
 C:\Users\muissa\Documents\Visual Studio 2012\Projects\Inventory\InventorySystem\bin\DataAccess.pdb
+D:\Inventory\InventorySystem\bin\InventorySystem.dll
+D:\Inventory\InventorySystem\bin\InventorySystem.pdb
+D:\Inventory\InventorySystem\bin\Antlr3.Runtime.dll
+D:\Inventory\InventorySystem\bin\AspNet.ScriptManager.jQuery.dll
+D:\Inventory\InventorySystem\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+D:\Inventory\InventorySystem\bin\Bussinesslogic.dll
+D:\Inventory\InventorySystem\bin\BussinessObject.dll
+D:\Inventory\InventorySystem\bin\DataAccess.dll
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.AspNet.dll
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.Core.dll
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.OAuth.dll
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.dll
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Inventory\InventorySystem\bin\EntityFramework.dll
+D:\Inventory\InventorySystem\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+D:\Inventory\InventorySystem\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\Inventory\InventorySystem\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\Inventory\InventorySystem\bin\Microsoft.ScriptManager.WebForms.dll
+D:\Inventory\InventorySystem\bin\Microsoft.Web.Infrastructure.dll
+D:\Inventory\InventorySystem\bin\System.Web.Optimization.dll
+D:\Inventory\InventorySystem\bin\System.Web.Providers.dll
+D:\Inventory\InventorySystem\bin\WebGrease.dll
+D:\Inventory\InventorySystem\bin\Bussinesslogic.pdb
+D:\Inventory\InventorySystem\bin\BussinessObject.pdb
+D:\Inventory\InventorySystem\bin\DataAccess.pdb
+D:\Inventory\InventorySystem\bin\EntityFramework.xml
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.Core.xml
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.OAuth.xml
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.xml
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Inventory\InventorySystem\bin\DotNetOpenAuth.AspNet.xml
+D:\Inventory\InventorySystem\obj\Debug\InventorySystem.csprojResolveAssemblyReference.cache
+D:\Inventory\InventorySystem\obj\Debug\InventorySystem.dll
+D:\Inventory\InventorySystem\obj\Debug\InventorySystem.pdb
