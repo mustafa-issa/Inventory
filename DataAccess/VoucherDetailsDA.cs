@@ -108,7 +108,7 @@ namespace DataAccess
 
        public DataTable RetrieveVoucherDetails(VoucherDetailsBO ObjBO)
        {
-           string str = "Select * from VoucherDetails";
+           string str = "Select * from VoucherDetailes";
            SqlDataAdapter da = new SqlDataAdapter(str, con);
            da.SelectCommand.CommandType = CommandType.Text;
            DataTable dt = new DataTable();

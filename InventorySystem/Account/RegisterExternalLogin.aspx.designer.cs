@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InventorySystem.Account
+namespace Inventory.Account
 {
 
 

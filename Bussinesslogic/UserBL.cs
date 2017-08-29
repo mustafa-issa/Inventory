@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using DataAccess; // for acessing DataAccess class
 using BussinessObject; // for acessing bussiness object class
+using System.Data;
+
 namespace Bussinesslogic
 {
     public class UserBL
@@ -20,6 +22,20 @@ namespace Bussinesslogic
                 throw;
             }
         }
+
+        public int SelectUserBL(UserBO objUserBL) 
+        {
+            try
+            {
+                UserDA objUserda = new UserDA(); 
+                return objUserda.SelectUser(objUserBL); 
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
 
     }
 }

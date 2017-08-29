@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Data;
 
-namespace InventorySystem
+namespace Inventory
 {
     public class VoucherDetailsClass
     {

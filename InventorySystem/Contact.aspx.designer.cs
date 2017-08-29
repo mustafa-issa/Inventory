@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InventorySystem
+namespace Inventory
 {
     public partial class Contact
     {

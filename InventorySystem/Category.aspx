@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/InventoryMaster.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="InventorySystem.Category" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/InventoryMaster.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="Inventory.Category" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .btn 

@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace InventorySystem
+namespace Inventory
 {
     public class LinSupClass
     {

@@ -5,8 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Bussinesslogic;
+using BussinessObject;
 
-namespace InventorySystem
+
+namespace Inventory
 {
     public partial class Category : System.Web.UI.Page
     {
@@ -22,38 +25,42 @@ namespace InventorySystem
                 else
                 {
                     Response.Redirect("Login.aspx");
+
                 }
             }
         }
- private int ddlshowrec()
-        {
-            
-            CategoryClass C = new CategoryClass();
-            DropDownList2.DataSource = C.ddl();
+
+
+          private int ddlshowrec()
+            {
+
+            CategoryBO ObjBO = new CategoryBO();
+            CategoryBL ObjBL = new CategoryBL();
+
+            DropDownList2.DataSource = ObjBL.DropDownLIstBL(ObjBO);
             DropDownList2.DataBind();
-            DropDownList2.Items.Insert(0, new ListItem("None",  "NULL"));
+            DropDownList2.Items.Insert(0, new ListItem("None","NULL"));
             DropDownList2.SelectedIndex = 0;
             return 0;
            
         }
+
+
         protected void AddCategorybtn_ServerClick(object sender, EventArgs e)
         {
-
-           
-
-            CategoryClass CAT = new CategoryClass();
+            CategoryBO ObjBO = new CategoryBO();
             string Name = EnterName.Value;
-            
-            CAT.Name = Name;
+            ObjBO.Name = Name;
             if (DropDownList2.SelectedValue != "NULL")
             {
-              CAT.ParentId = Convert.ToInt32(DropDownList2.SelectedValue);  
+                ObjBO.ParentId = Convert.ToInt32(DropDownList2.SelectedValue);  
             }
-            
-            CAT.Status = 0;
-            CAT.InsertDate = DateTime.Now;
-            CAT.InsertBy = Convert.ToInt32(Session["UserId"]);
-            if (CAT.AddNewCategory()!=0)
+            ObjBO.Status = 0;
+            ObjBO.InsertDate = DateTime.Now;
+            ObjBO.InsertBy = Convert.ToInt32(Session["UserId"]);
+
+            CategoryBL ObjBL = new CategoryBL();
+            if (ObjBL.InsertCategoryBL(ObjBO) != 0)
             {
                 Label1.Text = "New Category was added successfully";
             }

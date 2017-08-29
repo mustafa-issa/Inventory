@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
-using InventorySystem;
+using Inventory;
 
-namespace InventorySystem
+namespace Inventory
 {
     public class Global : HttpApplication
     {

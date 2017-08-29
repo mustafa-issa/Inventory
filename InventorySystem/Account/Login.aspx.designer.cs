@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InventorySystem.Account
+namespace Inventory.Account
 {
 
 
@@ -30,6 +30,6 @@ namespace InventorySystem.Account
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::InventorySystem.Account.OpenAuthProviders OpenAuthLogin;
+        protected global::Inventory.Account.OpenAuthProviders OpenAuthLogin;
     }
 }

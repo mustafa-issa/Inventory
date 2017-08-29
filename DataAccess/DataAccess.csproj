@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryDA.cs" />
+    <Compile Include="ProductsDA.cs" />
     <Compile Include="UserDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VoucherDetailsDA.cs" />
+    <Compile Include="VouchersDA.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BussinessObject\BussinessObject.csproj">

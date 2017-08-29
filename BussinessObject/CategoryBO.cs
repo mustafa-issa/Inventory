@@ -14,6 +14,6 @@ namespace BussinessObject
         public DateTime InsertDate { get; set; }
         public DateTime UpdateDate { get; set; }
         public int InsertBy { get; set; }
-        public int UpdayeBy { get; set; }
+        public int UpdateBy { get; set; }
     }
 }

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using DataAccess;
 using BussinessObject;
+using System.Data;
 
 
 namespace Bussinesslogic
 {
-    class ProductsBL
+   public class ProductsBL
     {
         public int InsertProductsBL(ProductsBO ObjProductsBL) // passing Bussiness object Here 
         {
@@ -16,7 +17,6 @@ namespace Bussinesslogic
             {
                 ProductsDA ObjProductsDA = new ProductsDA(); // Creating object of Dataccess
                 return ObjProductsDA.AddProducts(ObjProductsBL); // calling Method of DataAccess 
-
 
             }
             catch
@@ -52,12 +52,12 @@ namespace Bussinesslogic
             }
         }
 
-        public void RetrieveProductsBL(ProductsBO Obj1ProductsBL)
+        public DataTable RetrieveProductsBL(ProductsBO Obj1ProductsBL)
         {
             try
             {
               ProductsDA ObjProductsDA = new ProductsDA();
-              ObjProductsDA.RetrieveRecords(Obj1ProductsBL);    
+             return ObjProductsDA.RetrieveRecords(Obj1ProductsBL);    
             }
             catch
             {

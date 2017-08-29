@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="InventorySystem.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Inventory.Global" Language="C#" %>

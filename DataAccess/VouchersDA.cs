@@ -20,7 +20,7 @@ namespace DataAccess
            try
            {
 
-               SqlCommand cmd = new SqlCommand("AddVouchers",con);
+               SqlCommand cmd = new SqlCommand("AddVoucher",con);
                cmd.CommandType = CommandType.StoredProcedure;
 
                cmd.Parameters.AddWithValue("@Number",ObjBO.Number);
@@ -53,7 +53,7 @@ namespace DataAccess
        {
            try
            {
-               SqlCommand cmd = new SqlCommand("DeleteVouchers",con);
+               SqlCommand cmd = new SqlCommand("DeleteVoucher",con);
                cmd.CommandType = CommandType.StoredProcedure;
 
                cmd.Parameters.AddWithValue("@VoucherId", ObjBO.VoucherId);
@@ -81,7 +81,7 @@ namespace DataAccess
            try
            {
 
-               SqlCommand cmd = new SqlCommand("UpdateVouchers", con);
+               SqlCommand cmd = new SqlCommand("UpdateVoucher", con);
                cmd.CommandType = CommandType.StoredProcedure;
 
                cmd.Parameters.AddWithValue("@Number",ObjBO.Number);

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using DataAccess;
 using BussinessObject;
+using System.Data;
+
 
 namespace Bussinesslogic
 {
@@ -25,12 +27,57 @@ namespace Bussinesslogic
 
        }
 
-       public void DropDownLIstBL(CategoryBO ObjBL)
+       public int DeleteCategoryBL(CategoryBO ObjBL)
        {
            try
            {
                CategoryDA ObjDA = new CategoryDA();
-               ObjDA.DropDownList(ObjBL);
+               return ObjDA.DeleteCategory(ObjBL);
+
+           }
+           catch
+           {
+               throw;
+           }
+
+       }
+
+       public int UpdateCategoryBL(CategoryBO ObjBL)
+       {
+           try
+           {
+               CategoryDA ObjDA = new CategoryDA();
+               return ObjDA.UpdateCategory(ObjBL);
+
+           }
+           catch
+           {
+               throw;
+           }
+
+       }
+
+       public DataTable RetrieveCategoryBL(CategoryBO ObjBL)
+       {
+           try
+           {
+               CategoryDA ObjDA = new CategoryDA();
+               return ObjDA.RetrieveCategory(ObjBL);
+
+           }
+           catch
+           {
+               throw;
+           }
+
+       }
+
+       public DataTable DropDownLIstBL(CategoryBO ObjBL)
+       {
+           try
+           {
+              CategoryDA ObjDA = new CategoryDA();
+              return ObjDA.DropDownListCategory(ObjBL);
            }
            catch
            {

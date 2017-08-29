@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using DataAccess;
 using BussinessObject;
+using System.Data;
 
 
 namespace Bussinesslogic
@@ -55,12 +56,12 @@ namespace Bussinesslogic
 
        }
 
-       public void RetrieveVoucheDetailsBL(VoucherDetailsBO ObjBL)
+       public DataTable RetrieveVoucheDetailsBL(VoucherDetailsBO ObjBL)
        {
            try
            {
-             VoucherDetailsDA ObjDA = new VoucherDetailsDA();
-             ObjDA.RetrieveVoucherDetails(ObjBL);
+            VoucherDetailsDA ObjDA = new VoucherDetailsDA();
+            return ObjDA.RetrieveVoucherDetails(ObjBL);
 
            }
            catch

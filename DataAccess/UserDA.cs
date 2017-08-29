@@ -6,6 +6,7 @@ using System.Data; // Required for using Dataset , Datatable and Sql
 using System.Data.SqlClient; // Required for Using Sql 
 using System.Configuration; // for Using Connection From Web.config
 using BussinessObject;  // for acessing bussiness object class
+
 namespace DataAccess
 {
 
@@ -35,7 +36,7 @@ namespace DataAccess
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return Result;
-                
+
             }
             catch
             {
@@ -43,12 +44,57 @@ namespace DataAccess
             }
             finally
             {
-              
+
                 con.Close();
                 con.Dispose();
             }
         }
 
+        public int SelectUser(UserBO ObjBO)
+        {
 
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select * from Users where UserName=@UserName AND Password=@Password";
+            cmd.Connection = con;
+            cmd.Parameters.AddWithValue("@Email",ObjBO.Email);
+            cmd.Parameters.AddWithValue("@Password",ObjBO.Password);
+            cmd.Parameters.AddWithValue("@UserId",ObjBO.UserId);
+
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+
+            da.SelectCommand = cmd;
+
+            try
+            {
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    int r = Convert.ToInt32(dt.Rows[0]["UserId"]);
+                    return r;
+                }
+
+                else
+                    return 0;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+
+                da.Dispose();
+                con.Close();
+                con.Dispose();
+            }
+
+
+
+
+        }
     }
 }

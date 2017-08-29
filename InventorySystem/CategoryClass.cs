@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 
 
-namespace InventorySystem
+namespace Inventory
 {
     public class CategoryClass
     {
@@ -28,15 +28,14 @@ namespace InventorySystem
             string ddl = "select * from Category where ParentId is null";
             SqlConnection con = new SqlConnection(mgr);
             SqlCommand cmd = new SqlCommand(ddl, con);
-           
             SqlDataAdapter sda = new SqlDataAdapter();
             cmd.Connection = con;
             sda.SelectCommand = cmd;
             DataTable dt = new DataTable();
             con.Open();
-           sda.Fill(dt);
-           con.Close();
-           return dt;
+            sda.Fill(dt);
+            con.Close();
+            return dt;
 
         }
 
@@ -55,9 +54,6 @@ namespace InventorySystem
                 cmd.Parameters.AddWithValue("@InsertDate", InsertDate);
                 cmd.Parameters.AddWithValue("@InsertBy", InsertBy);
                 
-
-
-
                 return cmd.ExecuteNonQuery();
 
             }
@@ -71,5 +67,6 @@ namespace InventorySystem
                 con.Close();
             }
         }
+
     }
 }

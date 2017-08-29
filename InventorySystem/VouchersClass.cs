@@ -7,7 +7,7 @@ using System.Web.Configuration;
 using System.Data;
 using System.Text;
 
-namespace InventorySystem
+namespace Inventory
 {
     public class VouchersClass
     {

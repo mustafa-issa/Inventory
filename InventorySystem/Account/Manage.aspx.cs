@@ -4,7 +4,7 @@ using System.Linq;
 
 using Microsoft.AspNet.Membership.OpenAuth;
 
-namespace InventorySystem.Account
+namespace Inventory.Account
 {
     public partial class Manage : System.Web.UI.Page
     {
