@@ -52,12 +52,12 @@ namespace Bussinesslogic
             }
         }
 
-        public DataTable RetrieveProductsBL(ProductsBO Obj1ProductsBL)
+        public DataTable RetrieveProductsBL()
         {
             try
             {
               ProductsDA ObjProductsDA = new ProductsDA();
-             return ObjProductsDA.RetrieveRecords(Obj1ProductsBL);    
+             return ObjProductsDA.RetrieveRecords();    
             }
             catch
             {

@@ -29,7 +29,7 @@
              <div class="container">
           <div class="row">
               <div class="col-md-6" > 
-            <asp:GridView ID="GridView1" BackColor="White" BorderColor="#DEDFDE"  OnRowDataBound="GridView1_RowDataBound" AutoGenerateColumns="false" ShowFooter="true" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" AllowSorting="true" OnSorting="GridView1_Sorting" PageSize="10" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnRowDeleting="GridView1_RowDeleting" runat="server" class="table-responsive" >
+            <asp:GridView ID="grdProducts" BackColor="White" BorderColor="#DEDFDE"  OnRowDataBound="GridView1_RowDataBound" AutoGenerateColumns="false" ShowFooter="true" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" AllowSorting="true" OnSorting="GridView1_Sorting" PageSize="10" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnRowDeleting="GridView1_RowDeleting" runat="server" class="table-responsive" >
                 <AlternatingRowStyle BackColor="White" />
                 <FooterStyle BackColor="#CCCC99" />
                 <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -55,6 +55,8 @@
                         </FooterTemplate>
 
                     </asp:TemplateField>
+
+
                     <asp:TemplateField HeaderText="Title" SortExpression="Title">
                         <HeaderTemplate>
                             Title
@@ -63,11 +65,11 @@
                             <asp:Label ID="lblTitle" runat="server" Text='<%#Bind("Title") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtTitle" Text='<%#Bind("Title") %>' runat="server" Width="80px"></asp:TextBox>
+                            <asp:TextBox ID="tbTitle" Text='<%#Bind("Title") %>' runat="server" Width="80px"></asp:TextBox>
 
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="TextBox1"></asp:TextBox></FooterTemplate>
+                            <asp:TextBox runat="server" ID="tbTitle"></asp:TextBox></FooterTemplate>
                     </asp:TemplateField>
 
 
@@ -79,11 +81,11 @@
                             <asp:Label ID="lblDesc" runat="server" Text='<%#Bind("Description") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtDesc" Text='<%#Bind("Description") %>' runat="server" Width="80px"></asp:TextBox>
+                            <asp:TextBox ID="tbDescription" Text='<%#Bind("Description") %>' runat="server" Width="80px"></asp:TextBox>
 
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="TextBox2"></asp:TextBox></FooterTemplate>
+                            <asp:TextBox runat="server" ID="tbDescription"></asp:TextBox></FooterTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Price" SortExpression="Price">
@@ -94,11 +96,11 @@
                             <asp:Label ID="lblPrice" runat="server" Text='<%#Bind("Price") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtPrice" Text='<%#Bind("Price") %>' runat="server" Width="100px"></asp:TextBox>
+                            <asp:TextBox ID="tbPrice" Text='<%#Bind("Price") %>' runat="server" Width="100px"></asp:TextBox>
 
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="TextBox3"></asp:TextBox></FooterTemplate>
+                            <asp:TextBox runat="server" ID="tbPrice"></asp:TextBox></FooterTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Quantity" SortExpression="Quantity">
@@ -109,11 +111,11 @@
                             <asp:Label ID="lblQuantity" runat="server" Text='<%#Bind("Quantity") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtQuantity" Text='<%#Bind("Quantity") %>' runat="server" Width="30px"></asp:TextBox>
+                            <asp:TextBox ID="tbQuantity" Text='<%#Bind("Quantity") %>' runat="server" Width="30px"></asp:TextBox>
 
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="TextBox4"></asp:TextBox></FooterTemplate>
+                            <asp:TextBox runat="server" ID="tbQuantity"></asp:TextBox></FooterTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Status" SortExpression="Status" Visible="false">
@@ -124,11 +126,11 @@
                             <asp:Label ID="lblStatus" runat="server" Text='<%#Bind("Status") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtStatus" Text='<%#Bind("Status") %>' runat="server" Width="30px"></asp:TextBox>
+                            <asp:TextBox ID="tbStatus" Text='<%#Bind("Status") %>' runat="server" Width="30px"></asp:TextBox>
 
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="TextBox5"></asp:TextBox></FooterTemplate>
+                            <asp:TextBox runat="server" ID="tbStatus"></asp:TextBox></FooterTemplate>
                     </asp:TemplateField>
 
 
@@ -141,10 +143,9 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:DropDownList CssClass="selectpicker" ID="ddlCategory" runat="server" DataTextField="Name" DataValueField="CategoryId"></asp:DropDownList>
-
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList CssClass="selectpicker" ID="DropDownList1" runat="server" DataTextField="Name" DataValueField="CategoryId"></asp:DropDownList>
+                            <asp:DropDownList CssClass="selectpicker" ID="ddlCategory" runat="server" DataTextField="Name" DataValueField="CategoryId"></asp:DropDownList>
                         </FooterTemplate>
                     </asp:TemplateField>
 

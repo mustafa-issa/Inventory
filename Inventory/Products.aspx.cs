@@ -24,61 +24,59 @@ namespace Inventory
 
             if (!this.IsPostBack)
             {               
-                BindGridViewShowRecords();
-                DropDownList ddlCategory = GridView1.FooterRow.FindControl("DropDownList1") as DropDownList;
-                ddlCategory.DataSource = ddl();
-                ddlCategory.DataBind();
+                BindGridViewShowRecords();                
             }
         }
 
         private void BindGridViewShowRecords()
         {
 
-            GridView1.DataSource = GridViewShowRecords();
-            GridView1.DataBind();
+            grdProducts.DataSource = GridViewShowRecords();
+            grdProducts.DataBind();
+            DropDownList ddlCategory = grdProducts.FooterRow.FindControl("ddlCategory") as DropDownList;
+            ddlCategory.DataSource = ddl();
+            ddlCategory.DataBind();
         }
 
         public DataTable GridViewShowRecords()
         {
 
             DataTable dt = new DataTable();
-            ProductsBO ObjBO = new ProductsBO();
-
             ProductsBL ObjBL = new ProductsBL();
-            dt = ObjBL.RetrieveProductsBL(ObjBO);
+            dt = ObjBL.RetrieveProductsBL();
             return dt;
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            TextBox ProductId = GridView1.Rows[e.RowIndex].FindControl("txtProductId") as TextBox;
-            TextBox Title = GridView1.Rows[e.RowIndex].FindControl("txtTitle") as TextBox;
-            TextBox Description = GridView1.Rows[e.RowIndex].FindControl("txtDesc") as TextBox;
-            TextBox Price = GridView1.Rows[e.RowIndex].FindControl("txtPrice") as TextBox;
-            TextBox Quantity = GridView1.Rows[e.RowIndex].FindControl("txtQuantity") as TextBox;
-            TextBox Status = GridView1.Rows[e.RowIndex].FindControl("txtStatus") as TextBox;
-            TextBox UpdateDate = GridView1.Rows[e.RowIndex].FindControl("txtUpdateDate") as TextBox;
-            DropDownList ddlCategory = GridView1.Rows[e.RowIndex].FindControl("ddlCategory") as DropDownList;
+            TextBox ProductId = grdProducts.Rows[e.RowIndex].FindControl("txtProductId") as TextBox;
+            TextBox tbTitle = grdProducts.Rows[e.RowIndex].FindControl("tbTitle") as TextBox;
+            TextBox tbDescription = grdProducts.Rows[e.RowIndex].FindControl("tbDescription") as TextBox;
+            TextBox tbPrice = grdProducts.Rows[e.RowIndex].FindControl("tbPrice") as TextBox;
+            TextBox tbQuantity = grdProducts.Rows[e.RowIndex].FindControl("tbQuantity") as TextBox;
+            TextBox tbStatus = grdProducts.Rows[e.RowIndex].FindControl("tbStatus") as TextBox;
+            TextBox UpdateDate = grdProducts.Rows[e.RowIndex].FindControl("txtUpdateDate") as TextBox;
+            DropDownList ddlCategory = grdProducts.Rows[e.RowIndex].FindControl("ddlCategory") as DropDownList;
 
             ProductsBO ObjBO = new ProductsBO();
             ObjBO.ProductId = Convert.ToInt32(ProductId.Text);
-            ObjBO.Title = Title.Text;
-            ObjBO.Description = Description.Text;
-            ObjBO.Price = Convert.ToDecimal(Price.Text);
+            ObjBO.Title = tbTitle.Text;
+            ObjBO.Description = tbDescription.Text;
+            ObjBO.Price = Convert.ToDecimal(tbPrice.Text);
             ObjBO.UpdateDate = DateTime.Now;
             ObjBO.CategoryId = Convert.ToInt32(ddlCategory.SelectedValue);
 
             ProductsBL ObjBL = new ProductsBL();
             ObjBL.UpdateProductsBL(ObjBO);
 
-            GridView1.EditIndex = -1;
+            grdProducts.EditIndex = -1;
             BindGridViewShowRecords();
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
-            Label ProductId = GridView1.Rows[e.RowIndex].FindControl("lblProductId") as Label;
+            Label ProductId = grdProducts.Rows[e.RowIndex].FindControl("lblProductId") as Label;
             int id = Convert.ToInt32(ProductId.Text);
 
             ProductsBO ObjBO = new ProductsBO();
@@ -91,47 +89,46 @@ namespace Inventory
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            GridView1.EditIndex = e.NewEditIndex;
+            grdProducts.EditIndex = e.NewEditIndex;
             BindGridViewShowRecords();
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            GridView1.EditIndex = -1;
+            grdProducts.EditIndex = -1;
             BindGridViewShowRecords();
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            GridViewRow GrdRow = (GridViewRow)btn.Parent.Parent;
-            TextBox Title = (TextBox)GrdRow.Cells[0].FindControl("txtTitle");
-            TextBox Description = (TextBox)GrdRow.Cells[0].FindControl("txtDesc");
-            TextBox Price = (TextBox)GrdRow.Cells[0].FindControl("txtPrice");
-            TextBox Quantity = (TextBox)GrdRow.Cells[0].FindControl("txtQuantity");
-            TextBox Status = (TextBox)GrdRow.Cells[0].FindControl("txtStatus");
-            TextBox InsertDate = (TextBox)GrdRow.Cells[0].FindControl("txtInsertDate");
-            DropDownList CategoryId = (DropDownList)GrdRow.Cells[0].FindControl("ddlCategory");
+            TextBox tbTitle = (TextBox)grdProducts.FooterRow.FindControl("tbTitle");
+            TextBox tbDescription = (TextBox)grdProducts.FooterRow.FindControl("tbDescription");
+            TextBox tbPrice = (TextBox)grdProducts.FooterRow.FindControl("tbPrice");
+            TextBox tbQuantity = (TextBox)grdProducts.FooterRow.FindControl("tbQuantity");
+            TextBox tbStatus = (TextBox)grdProducts.FooterRow.FindControl("tbStatus");
+            TextBox InsertDate = (TextBox)grdProducts.FooterRow.FindControl("txtInsertDate");
+            DropDownList ddlCategory = (DropDownList)grdProducts.FooterRow.FindControl("ddlCategory");
 
 
 
             ProductsBO ObjBO = new ProductsBO();
 
-            if (double.TryParse(Price.Text, out temp))
+            if (double.TryParse(tbPrice.Text,out temp))
             {
-                ObjBO.Price = Convert.ToDecimal(Price.Text);
+                ObjBO.Price = Convert.ToDecimal(tbPrice.Text);
             }
-            ObjBO.Title = Title.Text;
-            ObjBO.Description = Description.Text;
-            ObjBO.Quantity = Convert.ToInt32(Quantity.Text);
+            ObjBO.Title = tbTitle.Text;
+            ObjBO.Description = tbDescription.Text;
+            ObjBO.Quantity = Convert.ToInt32(tbQuantity.Text);
             ObjBO.Status = 0;
             ObjBO.InsertDate = DateTime.Now;
-            ObjBO.CategoryId = Convert.ToInt32(CategoryId.SelectedValue);
+            ObjBO.CategoryId = Convert.ToInt32(ddlCategory.SelectedValue);
 
             ProductsBL ObjBL = new ProductsBL();
             ObjBL.InsertProductsBL(ObjBO);
 
-            GridView1.EditIndex = -1;
+            grdProducts.EditIndex = -1;
             BindGridViewShowRecords();
         }
 
@@ -174,15 +171,15 @@ namespace Inventory
                 }
                 DataView sortedView = new DataView(dt);
                 sortedView.Sort = e.SortExpression + " " + SortDir;
-                GridView1.DataSource = sortedView;
-                GridView1.DataBind();
+                grdProducts.DataSource = sortedView;
+                grdProducts.DataBind();
             }
         }
 
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridView1.PageIndex = e.NewPageIndex;
+            grdProducts.PageIndex = e.NewPageIndex;
             BindGridViewShowRecords();
         }
 

@@ -57,7 +57,7 @@ namespace DataAccess
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "Select * from Users where UserName=@UserName AND Password=@Password";
             cmd.Connection = con;
-            cmd.Parameters.AddWithValue("@Email",ObjBO.Email);
+            cmd.Parameters.AddWithValue("@UserName", ObjBO.UserName);
             cmd.Parameters.AddWithValue("@Password",ObjBO.Password);
             cmd.Parameters.AddWithValue("@UserId",ObjBO.UserId);
 

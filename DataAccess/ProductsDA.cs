@@ -108,7 +108,7 @@ namespace DataAccess
             }
         }
 
-        public DataTable RetrieveRecords(ProductsBO ObjBO)
+        public DataTable RetrieveRecords()
         {
 
             string str = "Select Products.*,Category.Name from Products INNER JOIN Category ON Products.CategoryId=Category.CategoryId ";

@@ -246,7 +246,7 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">Vouchers</span></a>
                         <ul>
 							<li><a href="orders.html">Sell</a></li>
-							<li><a href="products-view.html">Buy</a></li>
+							<li><a href="PurchaseVoucher">Buy</a></li>
                    
 				</ul>
 </li>
