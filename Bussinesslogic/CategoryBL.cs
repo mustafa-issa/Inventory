@@ -7,6 +7,7 @@ using BussinessObject;
 using System.Data;
 
 
+
 namespace Bussinesslogic
 {
    public class CategoryBL
@@ -57,13 +58,12 @@ namespace Bussinesslogic
 
        }
 
-       public DataTable RetrieveCategoryBL(CategoryBO ObjBL)
+       public List<CategoryBO> RetrieveCategoryBL()
        {
            try
            {
                CategoryDA ObjDA = new CategoryDA();
-               return ObjDA.RetrieveCategory(ObjBL);
-
+               return ObjDA.RetrieveCategory();
            }
            catch
            {
@@ -72,12 +72,14 @@ namespace Bussinesslogic
 
        }
 
-       public DataTable DropDownLIstBL(CategoryBO ObjBL)
+
+
+       public List<CategoryBO> DropDownLIstBL()
        {
            try
            {
               CategoryDA ObjDA = new CategoryDA();
-              return ObjDA.DropDownListCategory(ObjBL);
+              return ObjDA.GetParentCategories();
            }
            catch
            {
@@ -85,6 +87,7 @@ namespace Bussinesslogic
            }
 
        }
+
 
 
     }

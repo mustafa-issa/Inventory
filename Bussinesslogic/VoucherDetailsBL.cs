@@ -56,12 +56,12 @@ namespace Bussinesslogic
 
        }
 
-       public DataTable RetrieveVoucheDetailsBL(VoucherDetailsBO ObjBL)
+       public List<VoucherDetailsBO> RetrieveVoucheDetailsBL()
        {
            try
            {
             VoucherDetailsDA ObjDA = new VoucherDetailsDA();
-            return ObjDA.RetrieveVoucherDetails(ObjBL);
+            return ObjDA.RetrieveVoucherDetails();
 
            }
            catch

@@ -64,7 +64,7 @@
 				<span id="logo"> <img src="img/splash/f.jpg" alt="My Logo"/> </span>
 			</div>
 
-			<span id="extr-page-header-space"> <span class="hidden-mobile hidden-xs">Already registered?</span> <a href="login.html" class="btn btn-danger">Sign In</a> </span>
+			<span id="extr-page-header-space"> <span class="hidden-mobile hidden-xs">Already registered?</span> <a href="SignIn.aspx" class="btn btn-danger">Sign In</a> </span>
 
 		</header>
     <form id="form1" runat="server">

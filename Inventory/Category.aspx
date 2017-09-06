@@ -12,7 +12,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <h2><asp:Label ID="Label2" runat="server"></asp:Label></h2><br />
 
-    <h1>Please enter a new Item
+    <h1><b> Please enter a new Item </b>
         
     </h1><br />
     
@@ -22,8 +22,8 @@
 </div>
     
      <div class="form-group">
-  <label class="control-label" for="EnterCategory">Choose Category</label>
-  <asp:DropDownList ID="DropDownList2" CssClass="selectpicker" runat="server" DataTextField="Name" DataValueField="CategoryId" AppendDataBoundItems="True">
+  <label class="control-label" for="EnterCategory">Choose Category</label> <br />
+  <asp:DropDownList ID="ddlCategory" CssClass="selectpicker" runat="server" DataTextField="Name" DataValueField="CategoryId" AppendDataBoundItems="True">
       
   </asp:DropDownList>
     
@@ -32,7 +32,7 @@
    
 
 
-    <a href="Product1.aspx" class="btn btn-primary btn-lg" runat="server" id="AddCategorybtn"  onserverclick="AddCategorybtn_ServerClick" >Add Category</a>
+    <a href="Product1.aspx" class="btn btn-primary btn-lg" runat="server" id="AddCategorybtn"  onserverclick="AddCategorybtn_ServerClick" style="background-color:#CD5C5C" >Add Category</a>
 
 
 

@@ -106,17 +106,33 @@ namespace DataAccess
            }
        }
 
-       public DataTable RetrieveVoucherDetails(VoucherDetailsBO ObjBO)
+       public List<VoucherDetailsBO> RetrieveVoucherDetails()
        {
+           List<VoucherDetailsBO> VoucherDetails = new List<VoucherDetailsBO>();
            string str = "Select * from VoucherDetailes";
-           SqlDataAdapter da = new SqlDataAdapter(str, con);
-           da.SelectCommand.CommandType = CommandType.Text;
-           DataTable dt = new DataTable();
+           SqlCommand command = new SqlCommand(str, con);
+           if (con.State != ConnectionState.Open)
+               con.Open();
+           SqlDataReader reader = command.ExecuteReader();
+           while (reader.Read())
+           {
+               VoucherDetailsBO ObjBO = new  VoucherDetailsBO();
+               ObjBO.VoucherDetailId = int.Parse(reader["VoucherDetailId"].ToString());
+               ObjBO.VoucherId = int.Parse(reader["VoucherId"].ToString());
+               ObjBO.ProductId = int.Parse(reader["ProductId"].ToString());
+               ObjBO.Quantity = int.Parse(reader["Quantity"].ToString());
+               ObjBO.Status = int.Parse(reader["Status"].ToString());
+               ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
+               ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+               ObjBO.InsertBy = int.Parse(reader["InsertBy"].ToString());
+               ObjBO.UpdateBy = int.Parse(reader["UpdateBy"].ToString());
+
+               VoucherDetails.Add(ObjBO);
+           }
 
            try
            {
-               da.Fill(dt);
-               return dt;
+               return VoucherDetails;
            }
            catch
            {
@@ -125,7 +141,6 @@ namespace DataAccess
            finally
            {
 
-               da.Dispose();
                con.Close();
                con.Dispose();
            }

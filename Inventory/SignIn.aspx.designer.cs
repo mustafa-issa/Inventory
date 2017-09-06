@@ -13,13 +13,13 @@ namespace Inventory {
     public partial class SignIn {
         
         /// <summary>
-        /// email control.
+        /// username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl email;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText username;
         
         /// <summary>
         /// password control.

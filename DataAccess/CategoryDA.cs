@@ -9,23 +9,23 @@ using BussinessObject;
 
 namespace DataAccess
 {
-   public class CategoryDA
+    public class CategoryDA
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["constr"].ToString());
 
-              public int AddCategory(CategoryBO ObjBO)
-              {
-                try
-                    {
+        public int AddCategory(CategoryBO ObjBO)
+        {
+            try
+            {
 
-                SqlCommand cmd = new SqlCommand("AddCategory",con);
+                SqlCommand cmd = new SqlCommand("AddCategory", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Name",ObjBO.Name);
-                cmd.Parameters.AddWithValue("@ParentId",ObjBO.ParentId == null ? (Object)DBNull.Value : ObjBO.ParentId);
-                cmd.Parameters.AddWithValue("@Status",ObjBO.Status);
-                cmd.Parameters.AddWithValue("@InsertDate",ObjBO.InsertDate);
-                cmd.Parameters.AddWithValue("@InsertBy",ObjBO.InsertBy);
+                cmd.Parameters.AddWithValue("@Name", ObjBO.Name);
+                cmd.Parameters.AddWithValue("@ParentId", ObjBO.ParentId == null ? (Object)DBNull.Value : ObjBO.ParentId);
+                cmd.Parameters.AddWithValue("@Status", ObjBO.Status);
+                cmd.Parameters.AddWithValue("@InsertDate", ObjBO.InsertDate);
+                cmd.Parameters.AddWithValue("@InsertBy", ObjBO.InsertBy);
                 con.Open();
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -44,109 +44,187 @@ namespace DataAccess
             }
         }
 
-              public int DeleteCategory(CategoryBO ObjBO)
-              {
-                  try
-                  {
-                      SqlCommand cmd = new SqlCommand("DeleteCategory", con);
-                      cmd.CommandType = CommandType.StoredProcedure;
+        public int DeleteCategory(CategoryBO ObjBO)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("DeleteCategory", con);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                      cmd.Parameters.AddWithValue("@CategoryId", ObjBO.CategoryId);
-                      con.Open();
-                      int Result = cmd.ExecuteNonQuery();
-                      cmd.Dispose();
-                      return Result;
-                  }
+                cmd.Parameters.AddWithValue("@CategoryId", ObjBO.CategoryId);
+                con.Open();
+                int Result = cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                return Result;
+            }
 
-                  catch
-                  {
-                      throw;
-                  }
-                  finally
-                  {
-                      con.Close();
-                      con.Dispose();
-                  }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
 
 
-              }
+        }
 
-              public int UpdateCategory(CategoryBO ObjBO)
-              {
-                  try
-                  {
+        public int UpdateCategory(CategoryBO ObjBO)
+        {
+            try
+            {
 
-                      SqlCommand cmd = new SqlCommand("UpdateCategory", con);
-                      cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("UpdateCategory", con);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                      cmd.Parameters.AddWithValue("@CategoryId", ObjBO.CategoryId);
-                      cmd.Parameters.AddWithValue("@Name", ObjBO.Name);
-                      cmd.Parameters.AddWithValue("@ParentId", ObjBO.ParentId);
-                      cmd.Parameters.AddWithValue("@Status", ObjBO.Status);
-                      cmd.Parameters.AddWithValue("@InsertDate", ObjBO.InsertDate);
-                      cmd.Parameters.AddWithValue("@UpdateDate", ObjBO.UpdateDate);
-                      cmd.Parameters.AddWithValue("@InsertBy", ObjBO.InsertBy);
-                      cmd.Parameters.AddWithValue("@UpdateBy", ObjBO.UpdateBy);
+                cmd.Parameters.AddWithValue("@CategoryId", ObjBO.CategoryId);
+                cmd.Parameters.AddWithValue("@Name", ObjBO.Name);
+                cmd.Parameters.AddWithValue("@ParentId", ObjBO.ParentId);
+                cmd.Parameters.AddWithValue("@Status", ObjBO.Status);
+                cmd.Parameters.AddWithValue("@InsertDate", ObjBO.InsertDate);
+                cmd.Parameters.AddWithValue("@UpdateDate", ObjBO.UpdateDate);
+                cmd.Parameters.AddWithValue("@InsertBy", ObjBO.InsertBy);
+                cmd.Parameters.AddWithValue("@UpdateBy", ObjBO.UpdateBy);
 
-                      con.Open();
-                      int Result = cmd.ExecuteNonQuery();
-                      cmd.Dispose();
-                      return Result;
+                con.Open();
+                int Result = cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                return Result;
 
-                  }
-                  catch
-                  {
-                      throw;
-                  }
-                  finally
-                  {
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
 
-                      con.Close();
-                      con.Dispose();
-                  }
-              }
+                con.Close();
+                con.Dispose();
+            }
+        }
 
-              public DataTable RetrieveCategory(CategoryBO ObjBO)
-              {
-                  string str = "Select * from Category";
-                  SqlDataAdapter da = new SqlDataAdapter(str, con);
-                  da.SelectCommand.CommandType = CommandType.Text;
-                  DataTable dt = new DataTable();
+        public List<CategoryBO> RetrieveCategory()
+        {
+            List<CategoryBO> Categories = new List<CategoryBO>();
 
-                  try
-                  {
-                      da.Fill(dt);
-                      return dt;
-                  }
-                  catch
-                  {
-                      throw;
-                  }
-                  finally
-                  {
+            string str = "Select * from Category";
+            SqlCommand command = new SqlCommand(str, con);
+            if (con.State != ConnectionState.Open)
+                con.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                CategoryBO ObjBO = new CategoryBO();
+                ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
+                ObjBO.Name = reader["Name"].ToString();
+                ObjBO.ParentId = int.Parse(reader["ParentId"].ToString());
+                ObjBO.Status = int.Parse(reader["Status"].ToString());
+                ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
+                ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+                ObjBO.InsertBy = int.Parse(reader["InsertBy"].ToString());
+                ObjBO.UpdateBy = int.Parse(reader["UpdateBy"].ToString());
 
-                      da.Dispose();
-                      con.Close();
-                      con.Dispose();
-                  }
+                Categories.Add(ObjBO);
+            }
 
-              }
+            try
+            {
+                return Categories;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
 
-              public DataTable DropDownListCategory(CategoryBO ObjBO)
-              {
-                  string ddl = "select * from Category where ParentId is null";
-                  SqlCommand cmd = new SqlCommand(ddl, con);
+                con.Close();
+                con.Dispose();
+            }
 
-                  SqlDataAdapter sda = new SqlDataAdapter();
-                  cmd.Connection = con;
-                  sda.SelectCommand = cmd;
-                  DataTable dt = new DataTable();
-                  con.Open();
-                  sda.Fill(dt);
-                  con.Close();
-                  return dt;
+        }
 
-              }
+        public CategoryBO SelectOne()
+        {
+
+            string str = "Select * from Category where CategoryId=@CategoryId";
+            SqlCommand command = new SqlCommand(str, con);
+            if (con.State != ConnectionState.Open)
+             con.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            CategoryBO ObjBO = new CategoryBO();
+            while (reader.Read())
+            {
+                
+                ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
+                ObjBO.Name = reader["Name"].ToString();
+                ObjBO.ParentId = int.Parse(reader["ParentId"].ToString());
+                ObjBO.Status = int.Parse(reader["Status"].ToString());
+                ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
+                ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+                ObjBO.InsertBy = int.Parse(reader["InsertBy"].ToString());
+                ObjBO.UpdateBy = int.Parse(reader["UpdateBy"].ToString());
+            }
+
+            try
+            {
+                return ObjBO;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+
+                con.Close();
+                con.Dispose();
+            }
+
+        }
+
+        public List<CategoryBO> GetParentCategories()
+        {
+
+            List<CategoryBO> ddlCategories = new List<CategoryBO>();
+            string ddl = "select * from Category where ParentId is null";
+            SqlCommand command = new SqlCommand(ddl, con);
+            if (con.State != ConnectionState.Open)
+                con.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                CategoryBO ObjBO = new CategoryBO();
+                ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
+                ObjBO.Name = reader["Name"].ToString();
+                ObjBO.ParentId = int.Parse(reader["ParentId"].ToString());
+                ObjBO.Status = int.Parse(reader["Status"].ToString());
+                ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
+                ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+                ObjBO.InsertBy = int.Parse(reader["InsertBy"].ToString());
+                ObjBO.UpdateBy = int.Parse(reader["UpdateBy"].ToString());
+
+                ddlCategories.Add(ObjBO);
+            }
+
+            try
+            {
+                return ddlCategories;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+
+                con.Close();
+                con.Dispose();
+            }
+
         }
     }
-
+}

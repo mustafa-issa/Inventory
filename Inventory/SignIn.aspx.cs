@@ -23,13 +23,13 @@ namespace Inventory
         {
             {
                 UserBO ObjBO = new UserBO();
-                string Email = email.Value;
+                string UserName = username.Value;
                 string Password = password.Value;
                
                 MD5 md5Hash = MD5.Create();
                 string hash = GetMd5Hash(md5Hash, Password);
 
-                ObjBO.Email = Email;
+                ObjBO.UserName = UserName;
                 ObjBO.Password = hash;
 
                 UserBL ObjBL = new UserBL();
@@ -37,7 +37,8 @@ namespace Inventory
                 {
 
                     Session["UserId"] = ObjBL.SelectUserBL(ObjBO);
-                    Response.Redirect("HomePage.aspx");
+                    Session["User"] = UserName;
+                    Response.Redirect("Category.aspx");
                 }
                 else
                 {

@@ -21,7 +21,7 @@ namespace Inventory
      
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            List<CategoryBO> Categories = new CategoryBL(). RetrieveCategoryBL();
             if (!this.IsPostBack)
             {               
                 BindGridViewShowRecords();                
@@ -41,10 +41,11 @@ namespace Inventory
         public DataTable GridViewShowRecords()
         {
 
-            DataTable dt = new DataTable();
-            ProductsBL ObjBL = new ProductsBL();
-            dt = ObjBL.RetrieveProductsBL();
-            return dt;
+            //DataTable dt = new DataTable();
+            //ProductsBL ObjBL = new ProductsBL();
+            //dt = ObjBL.RetrieveProductsBL();
+            //return dt;
+            return null;
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)

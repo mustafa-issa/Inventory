@@ -146,7 +146,7 @@
 
 				<!-- logout button -->
 				<div id="logout" class="btn-header transparent pull-right">
-					<span> <a href="login.html" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+					<span> <a href="SignIn.aspx" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
 				</div>
 				<!-- end logout button -->
 
@@ -207,9 +207,9 @@
 				<span> <!-- User image size is adjusted inside CSS, it should stay as is --> 
 					
 					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-						<img src="img/avatars/sunny.png" alt="me" class="online" /> 
+						
 						<span>
-							john.doe 
+                            <asp:Label ID="lblUser" runat="server"></asp:Label>
 						</span>
 						<i class="fa fa-angle-down"></i>
 					</a> 
@@ -233,7 +233,7 @@
 
 				<ul>
 					<li class="">
-						<a href="index.html" title="blank_"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
+						<a href="HomePage.aspx" title="blank_"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
 					</li>
 
                     <li>
@@ -245,8 +245,9 @@
                     <li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">Vouchers</span></a>
                         <ul>
+                            <li><a href="PurchaseVoucher.aspx">Buy</a></li>
 							<li><a href="orders.html">Sell</a></li>
-							<li><a href="PurchaseVoucher">Buy</a></li>
+						
                    
 				</ul>
 </li>
@@ -265,8 +266,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li>
-					<li>Blank</li>
+				
 				</ol>
 				<!-- end breadcrumb -->
   

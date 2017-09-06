@@ -52,7 +52,7 @@ namespace Bussinesslogic
             }
         }
 
-        public DataTable RetrieveProductsBL()
+        public List<ProductsBO> RetrieveProductsBL()
         {
             try
             {

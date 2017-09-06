@@ -68,5 +68,20 @@ namespace Bussinesslogic
              }
 
          }
+
+         public List<VouchersBO> RetrieveVouchersBL()
+         {
+             try
+             {
+                 VouchersDA ObjDA = new VouchersDA();
+                 return ObjDA.RetrieveVoucher();
+
+             }
+             catch
+             {
+                 throw;
+             }
+
+         }
     }
 }

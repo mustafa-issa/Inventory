@@ -62,7 +62,7 @@
 
 									<section>
 										<label class="input"> <i class="icon-append fa fa-user"></i>
-											<input type="text" id="fullname" runat="server" name="username" placeholder="Username"/>
+											<input type="text" id="fullname" runat="server" name="fullname" placeholder="FullName"/>
 											<b class="tooltip tooltip-bottom-right">Needed to enter the website</b> </label>
 									</section>
 								</fieldset>
@@ -74,7 +74,10 @@
 							
 								<footer>
                                     <asp:Button ID="btnsignup" runat="server" Text="Sign Up" type="submit" class="btn btn-primary" OnClick="signupbtn_Click"/>
+                                 
+                                  
 								</footer>
+
                
 								<div class="message">
 									<i class="fa fa-check"></i>
@@ -85,6 +88,7 @@
 							</div>
 
 						</div>
+                          
 						
 						<h5 class="text-center">- Or sign in using -</h5>
 						<ul class="list-inline text-center">

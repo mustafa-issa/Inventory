@@ -18,18 +18,19 @@ namespace Inventory
         {
             if (!IsPostBack)
             {
-                if (Session["UserId"] != null)
-                {
-                    Label2.Text = "Welcome " + Session["User"].ToString();
-                    ddlshowrec();
-                }
-                else
-                {
+               if (Session["UserId"] != null)
+                  {
+                Label2.Text = "Welcome " +  Session["User"].ToString();
+                ddlshowrec();
+                  }
+                  else
+                 {
                     Response.Redirect("SignIn.aspx");
 
+                 }
                 }
             }
-        }
+      
 
 
           private int ddlshowrec()
@@ -38,10 +39,10 @@ namespace Inventory
             CategoryBO ObjBO = new CategoryBO();
             CategoryBL ObjBL = new CategoryBL();
 
-            DropDownList2.DataSource = ObjBL.DropDownLIstBL(ObjBO);
-            DropDownList2.DataBind();
-            DropDownList2.Items.Insert(0, new ListItem("None","NULL"));
-            DropDownList2.SelectedIndex = 0;
+            ddlCategory.DataSource = ObjBL.DropDownLIstBL(ObjBO);
+            ddlCategory.DataBind();
+            ddlCategory.Items.Insert(0, new ListItem("None", "NULL"));
+            ddlCategory.SelectedIndex = 0;
             return 0;
            
         }
@@ -52,9 +53,9 @@ namespace Inventory
             CategoryBO ObjBO = new CategoryBO();
             string Name = EnterName.Value;
             ObjBO.Name = Name;
-            if (DropDownList2.SelectedValue != "NULL")
+            if (ddlCategory.SelectedValue != "NULL")
             {
-                ObjBO.ParentId = Convert.ToInt32(DropDownList2.SelectedValue);  
+             ObjBO.ParentId = Convert.ToInt32(ddlCategory.SelectedValue);  
             }
             ObjBO.Status = 0;
             ObjBO.InsertDate = DateTime.Now;

@@ -81,9 +81,9 @@
 								<fieldset>
 									
 									<section>
-										<label class="label">E-mail</label>
+										<label class="label">User Name</label>
 										<label class="input"> <i class="icon-append fa fa-user"></i>
-											<input type="email" name="email" id="email" runat="server"/>
+											<input type="text" name="username" id="username" runat="server"/>
 											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
 									</section>
 

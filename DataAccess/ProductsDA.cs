@@ -108,18 +108,35 @@ namespace DataAccess
             }
         }
 
-        public DataTable RetrieveRecords()
+        public List<ProductsBO> RetrieveRecords()
         {
+             List<ProductsBO> Products = new List<ProductsBO>();
 
-            string str = "Select Products.*,Category.Name from Products INNER JOIN Category ON Products.CategoryId=Category.CategoryId ";
-            SqlDataAdapter da = new SqlDataAdapter(str, con);
-            da.SelectCommand.CommandType = CommandType.Text;
-            DataTable dt = new DataTable();
+             string str = "Select Products.*,Category.Name from Products INNER JOIN Category ON Products.CategoryId=Category.CategoryId ";
+            SqlCommand command = new SqlCommand(str, con);
+            if (con.State != ConnectionState.Open)
+                con.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+               ProductsBO ObjBO = new ProductsBO();
+                ObjBO.ProductId = int.Parse(reader["ProductId"].ToString());
+                ObjBO.Title = reader["Title"].ToString();
+                ObjBO.Description = (reader["Description"].ToString());
+                ObjBO.Price = int.Parse(reader["Price"].ToString());
+                ObjBO.Quantity = int.Parse(reader["Quantity"].ToString());
+                ObjBO.Status = int.Parse(reader["Status"].ToString());
+                ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
+                ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+                ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
+           
+
+                Products.Add(ObjBO);
+            }
 
             try
             {
-                da.Fill(dt);
-                return dt;
+                return Products;
             }
             catch
             {
@@ -128,11 +145,12 @@ namespace DataAccess
             finally
             {
 
-                da.Dispose();
                 con.Close();
                 con.Dispose();
             }
+
         }
+
 
         public double SelectPrice(ProductsBO ObjBO)
         {
