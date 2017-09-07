@@ -16,7 +16,7 @@ public class ProductsClass
     public ProductsClass()
     {
         //
-        // TODO: Add constructor logic here
+        // TODO: Add constructor logic
         //
     }
     public int ProductId { get; set; }
