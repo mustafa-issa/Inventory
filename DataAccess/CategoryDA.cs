@@ -120,12 +120,28 @@ namespace DataAccess
                 CategoryBO ObjBO = new CategoryBO();
                 ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
                 ObjBO.Name = reader["Name"].ToString();
-                ObjBO.ParentId = int.Parse(reader["ParentId"].ToString());
+
+                if (reader["ParentId"] == System.DBNull.Value)
+                    ObjBO.ParentId = null;
+                else
+                ObjBO.ParentId = Int32.Parse(reader["ParentId"].ToString());
+                //ObjBO.ParentId = (reader["ParentId"] == System.DBNull.Value ? null : Int32.Parse(reader["ParentId"].ToString()));
                 ObjBO.Status = int.Parse(reader["Status"].ToString());
                 ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
-                ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+
+                if (reader["UpdateDate"] == System.DBNull.Value)
+                    ObjBO.UpdateDate = null;
+                else
+                    ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+
+     
                 ObjBO.InsertBy = int.Parse(reader["InsertBy"].ToString());
-                ObjBO.UpdateBy = int.Parse(reader["UpdateBy"].ToString());
+
+                if (reader["UpdateBy"] == System.DBNull.Value)
+                    ObjBO.UpdateBy = null;
+                else
+                    ObjBO.UpdateBy = Int32.Parse(reader["UpdateBy"].ToString());
+
 
                 Categories.Add(ObjBO);
             }
@@ -161,12 +177,22 @@ namespace DataAccess
                 
                 ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
                 ObjBO.Name = reader["Name"].ToString();
-                ObjBO.ParentId = int.Parse(reader["ParentId"].ToString());
+                if (reader["ParentId"] == System.DBNull.Value)
+                    ObjBO.ParentId = null;
+                else
+                    ObjBO.ParentId = Int32.Parse(reader["ParentId"].ToString());
                 ObjBO.Status = int.Parse(reader["Status"].ToString());
                 ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
-                ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+                if (reader["UpdateDate"] == System.DBNull.Value)
+                    ObjBO.UpdateDate = null;
+                else
+                 ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
                 ObjBO.InsertBy = int.Parse(reader["InsertBy"].ToString());
-                ObjBO.UpdateBy = int.Parse(reader["UpdateBy"].ToString());
+
+                if (reader["UpdateBy"] == System.DBNull.Value)
+                    ObjBO.UpdateBy = null;
+                else
+                    ObjBO.UpdateBy = Int32.Parse(reader["UpdateBy"].ToString());
             }
 
             try
@@ -200,12 +226,22 @@ namespace DataAccess
                 CategoryBO ObjBO = new CategoryBO();
                 ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
                 ObjBO.Name = reader["Name"].ToString();
-                ObjBO.ParentId = int.Parse(reader["ParentId"].ToString());
+
+                if (reader["ParentId"] == System.DBNull.Value)
+                    ObjBO.ParentId = null;
+                else
                 ObjBO.Status = int.Parse(reader["Status"].ToString());
                 ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
-                ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+                if (reader["UpdateDate"] == System.DBNull.Value)
+                    ObjBO.UpdateDate = null;
+                else
+                    ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
                 ObjBO.InsertBy = int.Parse(reader["InsertBy"].ToString());
-                ObjBO.UpdateBy = int.Parse(reader["UpdateBy"].ToString());
+
+                if (reader["UpdateBy"] == System.DBNull.Value)
+                    ObjBO.UpdateBy = null;
+                else
+                    ObjBO.UpdateBy = Int32.Parse(reader["UpdateBy"].ToString());
 
                 ddlCategories.Add(ObjBO);
             }

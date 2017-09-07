@@ -14,8 +14,9 @@ namespace BussinessObject
         public int Quantity { get; set; }
         public int Status { get; set; }
         public DateTime InsertDate { get; set; }
-        public DateTime UpdateDate { get; set; }
-        public int CategoryId { get; set; }
+        public DateTime? UpdateDate { get; set; }
+        public int? CategoryId { get; set; }
 
+        public string Name { get; set; }
     }
 }

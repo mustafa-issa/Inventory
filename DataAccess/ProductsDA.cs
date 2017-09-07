@@ -123,14 +123,24 @@ namespace DataAccess
                 ObjBO.ProductId = int.Parse(reader["ProductId"].ToString());
                 ObjBO.Title = reader["Title"].ToString();
                 ObjBO.Description = (reader["Description"].ToString());
-                ObjBO.Price = int.Parse(reader["Price"].ToString());
+                ObjBO.Price = decimal.Parse(reader["Price"].ToString());
                 ObjBO.Quantity = int.Parse(reader["Quantity"].ToString());
                 ObjBO.Status = int.Parse(reader["Status"].ToString());
                 ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
-                ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
-                ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
-           
 
+                if (reader["UpdateDate"] == System.DBNull.Value)
+                    ObjBO.UpdateDate = null;
+                else
+                    ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+
+               
+
+                if (reader["CategoryId"] == System.DBNull.Value)
+                    ObjBO.CategoryId = null;
+                else
+                    ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
+
+                ObjBO.Name = (reader["Name"].ToString());
                 Products.Add(ObjBO);
             }
 
