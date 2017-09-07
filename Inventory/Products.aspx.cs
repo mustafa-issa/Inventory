@@ -38,14 +38,14 @@ namespace Inventory
             ddlCategory.DataBind();
         }
 
-        public List<ProductsBO> GridViewShowRecords()
+        public DataTable GridViewShowRecords()
         {
 
-            List<ProductsBO> Products = new List<ProductsBO>();
-            ProductsBL ObjBL = new ProductsBL();
-            Products = ObjBL.RetrieveProductsBL();
-            return Products;
-
+            //DataTable dt = new DataTable();
+            //ProductsBL ObjBL = new ProductsBL();
+            //dt = ObjBL.RetrieveProductsBL();
+            //return dt;
+            return null;
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)

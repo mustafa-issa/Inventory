@@ -6,7 +6,6 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using Inventory;
-using System.Web.Http;
 
 namespace Inventory
 {
@@ -14,11 +13,9 @@ namespace Inventory
     {
         void Application_Start(object sender, EventArgs e)
         {
-            RouteTable.Routes.MapHttpRoute(
-      name: "DefaultApi",
-      routeTemplate: "api/{controller}/{ProductId}",
-      defaults: new { ProductId = System.Web.Http.RouteParameter.Optional }
-               );
+            // Code that runs on application startup
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AuthConfig.RegisterOpenAuth();
         }
 
         void Application_End(object sender, EventArgs e)

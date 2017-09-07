@@ -12,9 +12,9 @@ namespace BussinessObject
         public int? ParentId { get; set; }
         public int Status { get; set; }
         public DateTime InsertDate { get; set; }
-        public DateTime? UpdateDate { get; set; }
+        public DateTime UpdateDate { get; set; }
         public int InsertBy { get; set; }
-        public int? UpdateBy { get; set; }
+        public int UpdateBy { get; set; }
         public List<ProductsBO> Products { get; set; }
     }
 }

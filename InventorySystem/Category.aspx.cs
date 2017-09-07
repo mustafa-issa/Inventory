@@ -37,7 +37,7 @@ namespace Inventory
             CategoryBO ObjBO = new CategoryBO();
             CategoryBL ObjBL = new CategoryBL();
 
-            DropDownList2.DataSource = ObjBL.DropDownLIstBL();
+            DropDownList2.DataSource = ObjBL.DropDownLIstBL(ObjBO);
             DropDownList2.DataBind();
             DropDownList2.Items.Insert(0, new ListItem("None","NULL"));
             DropDownList2.SelectedIndex = 0;
