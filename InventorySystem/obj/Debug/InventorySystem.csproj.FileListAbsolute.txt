@@ -166,3 +166,11 @@ C:\Inventory\InventorySystem\bin\DotNetOpenAuth.OAuth.Consumer.xml
 C:\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.xml
 C:\Inventory\InventorySystem\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\Inventory\InventorySystem\bin\DotNetOpenAuth.AspNet.xml
+C:\Inventory\InventorySystem\bin\Newtonsoft.Json.dll
+C:\Inventory\InventorySystem\bin\System.Net.Http.Formatting.dll
+C:\Inventory\InventorySystem\bin\System.Web.Http.dll
+C:\Inventory\InventorySystem\bin\System.Web.Http.WebHost.dll
+C:\Inventory\InventorySystem\bin\Newtonsoft.Json.xml
+C:\Inventory\InventorySystem\bin\System.Net.Http.Formatting.xml
+C:\Inventory\InventorySystem\bin\System.Web.Http.xml
+C:\Inventory\InventorySystem\bin\System.Web.Http.WebHost.xml

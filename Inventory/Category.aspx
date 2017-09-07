@@ -32,7 +32,7 @@
    
 
 
-    <a href="Product1.aspx" class="btn btn-primary btn-lg" runat="server" id="AddCategorybtn"  onserverclick="AddCategorybtn_ServerClick" style="background-color:#CD5C5C" >Add Category</a>
+    <a href="Product1.aspx" class="btn  btn-primary btn-lg" runat="server" id="AddCategorybtn"  onserverclick="AddCategorybtn_ServerClick" style="background-color:#CD5C5C" >Add Category</a>
 
 
 
