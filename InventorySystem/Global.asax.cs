@@ -15,10 +15,9 @@ namespace Inventory
         void Application_Start(object sender, EventArgs e)
         {
             RouteTable.Routes.MapHttpRoute(
-      name: "DefaultApi",
-      routeTemplate: "api/{controller}/{ProductId}",
-      defaults: new { ProductId = System.Web.Http.RouteParameter.Optional }
-               );
+              name: "DefaultApi",
+              routeTemplate: "api/{controller}/{Id}",
+              defaults: new { ProductId = System.Web.Http.RouteParameter.Optional });
         }
 
         void Application_End(object sender, EventArgs e)

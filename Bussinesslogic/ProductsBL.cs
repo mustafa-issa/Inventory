@@ -65,6 +65,19 @@ namespace Bussinesslogic
             }
         }
 
+        public ProductsBO SelectOneBL(int Id)
+        {
+            try
+            {
+                ProductsDA ObjProductsDA = new ProductsDA();
+                return ObjProductsDA.SelectOne(Id);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public double SelectPriceBL(ProductsBO ObjProductsBL)
         {
             try

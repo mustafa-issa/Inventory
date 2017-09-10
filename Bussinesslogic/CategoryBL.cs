@@ -74,6 +74,22 @@ namespace Bussinesslogic
 
 
 
+       public CategoryBO SelectOneBL()
+       {
+           try
+           {
+               CategoryDA ObjDA = new CategoryDA();
+               return ObjDA.SelectOne();
+           }
+           catch
+           {
+               throw;
+           }
+
+       }
+
+
+
        public List<CategoryBO> DropDownLIstBL()
        {
            try
