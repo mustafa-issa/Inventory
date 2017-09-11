@@ -3,56 +3,57 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-   <meta charset="utf-8">
+<head id="Head1" runat="server">
+   <meta charset="utf-8"/>
 		<title> My Website </title>
-		<meta name="description" content="">
-		<meta name="author" content="">
+		<meta name="description" content=""/>
+		<meta name="author" content=""/>
 			
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		
 		<!-- #CSS Links -->
 		<!-- Basic Styles -->
-		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css"/>
 
 		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
-		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css">
-		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production-plugins.min.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css"/>
 
-		<!-- We recommend you use "your_style.css" to override SmartAdmin
-		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
-		<link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"/> 
 
-		<!-- #FAVICONS -->
-		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/demo.min.css"/>
+
+
+		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon"/>
+		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon"/>
 
 		<!-- #GOOGLE FONT -->
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700"/>
 
 		<!-- #APP SCREEN / ICONS -->
 		<!-- Specifying a Webpage Icon for Web Clip 
 			 Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
-		<link rel="apple-touch-icon" href="img/splash/sptouch-icon-iphone.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="img/splash/touch-icon-ipad.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="img/splash/touch-icon-iphone-retina.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="img/splash/touch-icon-ipad-retina.png">
+		<link rel="apple-touch-icon" href="img/splash/sptouch-icon-iphone.png"/>
+		<link rel="apple-touch-icon" sizes="76x76" href="img/splash/touch-icon-ipad.png"/>
+		<link rel="apple-touch-icon" sizes="120x120" href="img/splash/touch-icon-iphone-retina.png"/>
+		<link rel="apple-touch-icon" sizes="152x152" href="img/splash/touch-icon-ipad-retina.png"/>
 		
 		<!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 		
 		<!-- Startup image for web apps -->
-		<link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
-		<link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
-		<link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+		<link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)"/>
+		<link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)"/>
+		<link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="screen and (max-device-width: 320px)"/>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
+    <form id="form1" runat="server">
 		<!-- #HEADER -->
 		<header id="header">
 			<div id="logo-group">
@@ -158,13 +159,7 @@
 				
 				<!-- #SEARCH -->
 				<!-- input: search field -->
-				<form action="#ajax/search.html" class="header-search pull-right">
-					<input id="search-fld" type="text" name="param" placeholder="Find reports and more">
-					<button type="submit">
-						<i class="fa fa-search"></i>
-					</button>
-					<a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
-				</form>
+
 				<!-- end input: search field -->
 
 				<!-- fullscreen button -->
@@ -216,21 +211,9 @@
 					
 				</span>
 			</div>
-			<!-- end user info -->
-
-			<!-- NAVIGATION : This navigation is also responsive
-
-			To make this navigation dynamic please make sure to link the node
-			(the reference to the nav > ul) after page load. Or the navigation
-			will not initialize.
-			-->
+			
 			<nav>
-				<!-- 
-				NOTE: Notice the gaps after each icon usage <i></i>..
-				Please note that these links work a bit different than
-				traditional href="" links. See documentation for details.
-				-->
-
+			
 				<ul>
 					<li class="">
 						<a href="HomePage.aspx" title="blank_"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
@@ -257,70 +240,54 @@
 
 		</aside>
 		<!-- END NAVIGATION -->
-   
-		<!-- #MAIN PANEL -->
-		<div id="main" role="main">
+
+        <div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon">
+	   <div id="ribbon">
+
+				<span class="ribbon-button-alignment"> <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true"> <i class="fa fa-refresh"></i> </span> </span>
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-				
+					<li>
+						Home
+					</li>
+					<li>
+						Tables
+					</li>
+					<li>
+						Jquery Grid
+					</li>
 				</ol>
-				<!-- end breadcrumb -->
-  
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right" style="margin-right:25px">
-					<a href="#" id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa fa-grid"></i> Change Grid</a>
-					<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa fa-plus"></i> Add</span>
-					<button id="search" class="btn btn-ribbon" data-title="search"><i class="fa fa-search"></i> <span class="hidden-mobile">Search</span></button>
-				</span> -->
+				
 
 			</div>
 			<!-- END RIBBON -->
 
-			<!-- #MAIN CONTENT -->
+			<!-- MAIN CONTENT -->
+	    <div id="content">
+		     <div class="row">
 
+					<!-- col -->
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+						<h1 class="page-title txt-color-blueDark"><!-- PAGE HEADER --><i class="fa-fw fa fa-home"></i> Page Header <span>>
+							Subtitle </span></h1>
+					</div>
+					<!-- end col -->
+
+					<!-- right side of the page with the sparkline graphs -->
+					<!-- col -->
 				
-				<!-- col -->
-				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-					<h1 class="page-title txt-color-blueDark">
-						
-						<!-- PAGE HEADER -->
-						<i class="fa-fw fa fa-home"></i> 
-							Page Header 
-						<span>>  
-							Subtitle
-						</span>
-					</h1>
+					<!-- end col -->
 
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-   
-               </div>
-    </form>
 				</div>
-				<!-- end col -->
-    
-        
-
-			<!-- end row -->
-			
-			<!-- END #MAIN CONTENT -->
-  
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+             </asp:ContentPlaceHolder>
+			</div>
+			<!-- END MAIN CONTENT -->
 		</div>
-		<!-- END #MAIN PANEL -->
-   
-		<!-- #PAGE FOOTER -->
+
 		<div class="page-footer">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
@@ -330,9 +297,6 @@
 			<!-- end row -->
 		</div>
 		<!-- END FOOTER -->
-
-		<!-- #SHORTCUT AREA : With large tiles (activated via clicking user name tag)
-			 Note: These tiles are completely responsive, you can add as many as you like -->
 		<div id="shortcut">
 			<ul>
 				<li>
@@ -340,24 +304,20 @@
 				</li>
 			</ul>
 		</div>
-		<!-- END SHORTCUT AREA -->
 
-		<!--================================================== -->
+    </form>
 
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)
-		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>-->
+   <script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
-
-		<!-- #PLUGINS -->
 		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>
 		    if (!window.jQuery) {
 		        document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
 		    }
 		</script>
 
-		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script>
 		    if (!window.jQuery.ui) {
 		        document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
@@ -365,32 +325,68 @@
 		</script>
 
 		<!-- IMPORTANT: APP CONFIG -->
-		<script src="js/app.config.seed.js"></script>
+		<script src="js/app.config.js"></script>
+
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
 
 		<!-- BOOTSTRAP JS -->
 		<script src="js/bootstrap/bootstrap.min.js"></script>
 
+		<!-- CUSTOM NOTIFICATION -->
+		<script src="js/notification/SmartNotification.min.js"></script>
+
+		<!-- JARVIS WIDGETS -->
+		<script src="js/smartwidgets/jarvis.widget.min.js"></script>
+
+		<!-- EASY PIE CHARTS -->
+		<script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+		<!-- SPARKLINES -->
+		<script src="js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+		<!-- JQUERY VALIDATE -->
+		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+		<!-- JQUERY MASKED INPUT -->
+		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+		<!-- JQUERY SELECT2 INPUT -->
+		<script src="js/plugin/select2/select2.min.js"></script>
+
+		<!-- JQUERY UI + Bootstrap Slider -->
+		<script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+		<!-- browser msie issue fix -->
+		<script src="js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+		<!-- FastClick: For mobile devices -->
+		<script src="js/plugin/fastclick/fastclick.min.js"></script>
+
 		<!--[if IE 8]>
-			<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
 		<![endif]-->
 
+		<!-- Demo purpose only -->
+		<script src="js/demo.min.js"></script>
+
 		<!-- MAIN APP JS FILE -->
-		<script src="js/app.seed.js"></script>
+		<script src="js/app.min.js"></script>
 
-		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
+		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+		<!-- Voice command : plugin -->
+		<script src="js/speech/voicecommand.min.js"></script>
 
-		    var _gaq = _gaq || [];
-		    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-		    _gaq.push(['_trackPageview']);
+		<!-- SmartChat UI : plugin -->
+		<script src="js/smart-chat-ui/smart.chat.ui.min.js"></script>
+		<script src="js/smart-chat-ui/smart.chat.manager.min.js"></script>
 
-		    (function () {
-		        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		    })();
 
-		</script>
+    <asp:ContentPlaceHolder ID="Scripts" runat="server">
+    </asp:ContentPlaceHolder>
+		
   
 </body>
 </html>
