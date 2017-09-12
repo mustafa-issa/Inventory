@@ -35,45 +35,50 @@
 		<script type="text/javascript">
 		    $(document).ready(function () {
 		        pageSetUp();
-		   
-		        var jqgrid_data = "data/1.json";
-
+	
 		        jQuery("#jqgrid").jqGrid({
-		            data: jqgrid_data,
-		            datatype: "local",
+            
+		            url: 'api/products',
+		            datatype: "json",
 		            height: 'auto',
-		            colNames: ['Actions', 'Inv No', 'Date', 'Client', 'Amount', 'Tax', 'Total', 'Notes'],
+		            colNames: ['ProductId', 'Title', 'Description', 'Price', 'Quantity', 'Status', 'InsertDate', 'UpdateDate','CategoryId'],
 		            colModel: [{
-		                name: 'act',
-		                index: 'act',
+		                name: 'ProductId',
+		                index: 'ProductId',
 		                sortable: false
 		            }, {
-		                name: 'id',
-		                index: 'id'
+		                name: 'Title',
+		                index: 'Title'
 		            }, {
-		                name: 'date',
-		                index: 'date',
+		                name: 'Description',
+		                index: 'Description',
 		                editable: true
 		            }, {
-		                name: 'name',
-		                index: 'name',
+		                name: 'Price',
+		                index: 'Price',
 		                editable: true
 		            }, {
-		                name: 'amount',
-		                index: 'amount',
+		                name: 'Quantity',
+		                index: 'Quantity',
 		                align: "right",
 		                editable: true
 		            }, {
-		                name: 'tax',
-		                index: 'tax',
+		                name: 'Status',
+		                index: 'Status',
 		                align: "right",
 		                editable: true
 		            }, {
-		                name: 'total',
-		                index: 'total',
+		                name: 'InsertDate',
+		                index: 'InsertDate',
 		                align: "right",
 		                editable: true
 		            }, {
+		                name: 'note',
+		                index: 'note',
+		                sortable: false,
+		                editable: true
+		            },
+		            {
 		                name: 'note',
 		                index: 'note',
 		                sortable: false,
@@ -86,8 +91,9 @@
 		            toolbarfilter: true,
 		            viewrecords: true,
 		            sortorder: "asc",
+
 		            gridComplete: function () {
-		                var ids = jQuery("#jqgrid").jqGrid('getDataIDs');
+		                var ids = jQuery("#jqgrid").jqGrid('getDataIDs');  // var gr = jQuery("#jqgrid").jqGrid('getGridParam', 'selrow');
 		                for (var i = 0; i < ids.length; i++) {
 		                    var cl = ids[i];
 		                    be = "<button class='btn btn-xs btn-default' data-original-title='Edit Row' onclick=\"jQuery('#jqgrid').editRow('" + cl + "');\"><i class='fa fa-pencil'></i></button>";
@@ -99,13 +105,157 @@
 		                        act: be + se + ca
 		                    });
 		                }
-		            },
+		            }
+
+                    ,
+
 		            editurl: "dummy.html",
 		            caption: "SmartAdmin jQgrid Skin",
 		            multiselect: true,
 		            autowidth: true,
 
 		        });
+
+
+
+
+		        jQuery("#jqgrid").jqGrid({
+		            url: 'api/products',
+		            datatype: "json",
+		            colNames: ['ProductId', 'Title', 'Description', 'Price', 'Quantity', 'Status', 'InsertDate', 'UpdateDate', 'CategoryId'],
+		            colModel: [{
+		                name: 'ProductId',
+		                index: 'ProductId',
+		                sortable: false
+		            }, {
+		                name: 'Title',
+		                index: 'Title'
+		            }, {
+		                name: 'Description',
+		                index: 'Description',
+		                editable: true
+		            }, {
+		                name: 'Price',
+		                index: 'Price',
+		                editable: true
+		            }, {
+		                name: 'Quantity',
+		                index: 'Quantity',
+		                align: "right",
+		                editable: true
+		            }, {
+		                name: 'Status',
+		                index: 'Status',
+		                align: "right",
+		                editable: true
+		            }, {
+		                name: 'InsertDate',
+		                index: 'InsertDate',
+		                align: "right",
+		                editable: true
+		            }, {
+		                name: 'note',
+		                index: 'note',
+		                sortable: false,
+		                editable: true
+		            },
+		            {
+		                name: 'note',
+		                index: 'note',
+		                sortable: false,
+		                editable: true
+		            }],
+		            rowNum: 10,
+		            rowList: [10, 20, 30],
+		            pager: '#pjqgrid',
+		            sortname: 'id',
+		            toolbarfilter: true,
+		            viewrecords: true,
+		         
+		            sortorder: "desc",
+		            caption: "Deleteing Example",
+		            editurl: "someurl.php"
+		        });
+
+		        $("#del_jqgrid").click(function () {
+		            var gr = jQuery("#jqgrid").jqGrid('getDataIDs');
+		            if (gr != null) jQuery("#jqgrid").jqGrid('delGridRow', gr, { reloadAfterSubmit: false });
+		            else alert("Please Select Row to delete!");
+		        });
+
+
+
+
+		        jQuery("#jqgrid").jqGrid({
+		            url: 'editing.php?q=1',
+		            datatype: "xml",
+		            colNames: ['ProductId', 'Title', 'Description', 'Price', 'Quantity', 'Status', 'InsertDate', 'UpdateDate', 'CategoryId'],
+		            colModel: [{
+		                name: 'ProductId',
+		                index: 'ProductId',
+		                sortable: false
+		            }, {
+		                name: 'Title',
+		                index: 'Title'
+		            }, {
+		                name: 'Description',
+		                index: 'Description',
+		                editable: true
+		            }, {
+		                name: 'Price',
+		                index: 'Price',
+		                editable: true
+		            }, {
+		                name: 'Quantity',
+		                index: 'Quantity',
+		                align: "right",
+		                editable: true
+		            }, {
+		                name: 'Status',
+		                index: 'Status',
+		                align: "right",
+		                editable: true
+		            }, {
+		                name: 'InsertDate',
+		                index: 'InsertDate',
+		                align: "right",
+		                editable: true
+		            }, {
+		                name: 'note',
+		                index: 'note',
+		                sortable: false,
+		                editable: true
+		            },
+		            {
+		                name: 'note',
+		                index: 'note',
+		                sortable: false,
+		                editable: true
+		            }],
+		            rowNum: 10,
+		            rowList: [10, 20, 30],
+		            pager: '#pagered',
+		            sortname: 'id',
+		            viewrecords: true,
+		            sortorder: "desc",
+		            caption: "Editing Example",
+		            editurl: "someurl.php"
+		        });
+		        $("#jqgrid_iledit").click(function () {
+		            var gr = jQuery("#jqgrid").jqGrid('getGridParam', 'selrow');
+		            if (gr != null) jQuery("#jqgrid").jqGrid('editGridRow', gr, { height: 280, reloadAfterSubmit: false });
+		            else alert("Please Select Row");
+		        });
+
+
+
+
+
+
+
+
+
+
 		        jQuery("#jqgrid").jqGrid('navGrid', "#pjqgrid", {
 		            edit: false,
 		            add: false,
@@ -125,6 +275,9 @@
 		        jQuery("#m1s").click(function () {
 		            jQuery("#jqgrid").jqGrid('setSelection', "13");
 		        });
+
+
+
 
 		        // remove classes
 		        $(".ui-jqgrid").removeClass("ui-widget ui-widget-content");
@@ -158,7 +311,11 @@
 		        $(".ui-icon.ui-icon-seek-end").wrap("<div class='btn btn-sm btn-default'></div>");
 		        $(".ui-icon.ui-icon-seek-end").removeClass().addClass("fa fa-fast-forward");
 
-		    })
+		    }
+
+            )
+
+		 
 
 		    $(window).on('resize.jqGrid', function () {
 		        $("#jqgrid").jqGrid('setGridWidth', $("#content").width());

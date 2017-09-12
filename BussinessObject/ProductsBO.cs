@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
+
+
 namespace BussinessObject
 {
     public class ProductsBO
     {
+
         public int ProductId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -19,4 +23,6 @@ namespace BussinessObject
 
         public string Name { get; set; }
     }
+
+
 }

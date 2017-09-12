@@ -23,34 +23,31 @@ namespace Inventory
 
             return aList;
 
-            ProductsBO x = new ProductsBO(5);
 
         }
 
 
 
         // GET api/<controller>/5
-        public ProductsBO Get(int Id)
+        public ProductsBO Get(int ProductId)
         {
             ProductsBL products = new ProductsBL();
-            return products.SelectOneBL(Id);
+            return products.SelectOneBL(ProductId);
     
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public void Post(ProductsBO product)
         {
             ProductsBL products = new ProductsBL();
-            ProductsBO ObjBO = new ProductsBO();
-            products.InsertProductsBL(ObjBO);
+            products.InsertProductsBL(product);
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(ProductsBO product)
         {
             ProductsBL products = new ProductsBL();
-            ProductsBO ObjBO = new ProductsBO();
-            products.UpdateProductsBL(ObjBO);
+            products.UpdateProductsBL(product);
 
 
 
@@ -58,11 +55,10 @@ namespace Inventory
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        public void Delete(int ProductId)
         {
             ProductsBL products = new ProductsBL();
-            ProductsBO ObjBO = new ProductsBO();
-            products.DeleteProductsBL(ObjBO);
+            products.DeleteProductsBL(ProductId);
 
 
         }

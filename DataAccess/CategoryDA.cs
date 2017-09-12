@@ -44,14 +44,14 @@ namespace DataAccess
             }
         }
 
-        public int DeleteCategory(CategoryBO ObjBO)
+        public int DeleteCategory(int CategoryId)
         {
             try
             {
                 SqlCommand cmd = new SqlCommand("DeleteCategory", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@CategoryId", ObjBO.CategoryId);
+                cmd.Parameters.AddWithValue("@CategoryId",CategoryId);
                 con.Open();
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -163,7 +163,7 @@ namespace DataAccess
 
         }
 
-        public CategoryBO SelectOne()
+        public CategoryBO SelectOne(int Id)
         {
 
             string str = "Select * from Category where CategoryId=@CategoryId";

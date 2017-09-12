@@ -28,12 +28,12 @@ namespace Bussinesslogic
 
        }
 
-       public int DeleteCategoryBL(CategoryBO ObjBL)
+       public int DeleteCategoryBL(int CategoryId)
        {
            try
            {
                CategoryDA ObjDA = new CategoryDA();
-               return ObjDA.DeleteCategory(ObjBL);
+               return ObjDA.DeleteCategory(CategoryId);
 
            }
            catch
@@ -74,12 +74,12 @@ namespace Bussinesslogic
 
 
 
-       public CategoryBO SelectOneBL()
+       public CategoryBO SelectOneBL(int Id)
        {
            try
            {
                CategoryDA ObjDA = new CategoryDA();
-               return ObjDA.SelectOne();
+               return ObjDA.SelectOne(Id);
            }
            catch
            {

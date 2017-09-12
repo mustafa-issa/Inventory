@@ -14,6 +14,7 @@ namespace Inventory
 {
     public partial class Products : System.Web.UI.Page
     {
+        
         DataSet ds = new DataSet();
         double temp;
 
@@ -80,11 +81,9 @@ namespace Inventory
             Label ProductId = grdProducts.Rows[e.RowIndex].FindControl("lblProductId") as Label;
             int id = Convert.ToInt32(ProductId.Text);
 
-            ProductsBO ObjBO = new ProductsBO();
-            ObjBO.ProductId = id;
 
             ProductsBL ObjBL = new ProductsBL();
-            ObjBL.DeleteProductsBL(ObjBO);
+            ObjBL.DeleteProductsBL(id);
 
         }
 
