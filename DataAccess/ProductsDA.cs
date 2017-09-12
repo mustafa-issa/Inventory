@@ -161,7 +161,60 @@ namespace DataAccess
 
         }
 
+        public ProductsBO SelectOne(int Id)
+        {
+            string str = "Select * from Products where ProductId=@ProductId ";
+            SqlCommand command = new SqlCommand(str, con);
+            command.Parameters.AddWithValue("@ProductId", Id);
+            if (con.State != ConnectionState.Open)
+                con.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            ProductsBO ObjBO = new ProductsBO();   
+            while (reader.Read())
+            {
+            
+                ObjBO.ProductId = int.Parse(reader["ProductId"].ToString());
+                ObjBO.Title = reader["Title"].ToString();
+                ObjBO.Description = (reader["Description"].ToString());
+                ObjBO.Price = decimal.Parse(reader["Price"].ToString());
+                ObjBO.Quantity = int.Parse(reader["Quantity"].ToString());
+                ObjBO.Status = int.Parse(reader["Status"].ToString());
+                ObjBO.InsertDate = DateTime.Parse(reader["InsertDate"].ToString());
 
+                if (reader["UpdateDate"] == System.DBNull.Value)
+                    ObjBO.UpdateDate = null;
+                else
+                    ObjBO.UpdateDate = DateTime.Parse(reader["UpdateDate"].ToString());
+
+
+
+                if (reader["CategoryId"] == System.DBNull.Value)
+                    ObjBO.CategoryId = null;
+                else
+                    ObjBO.CategoryId = int.Parse(reader["CategoryId"].ToString());
+
+                ObjBO.Name = (reader["Name"].ToString());
+
+            }
+
+            try
+            {
+                return ObjBO;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+
+                con.Close();
+                con.Dispose();
+            }
+
+
+
+        }
         public double SelectPrice(ProductsBO ObjBO)
         {
 
