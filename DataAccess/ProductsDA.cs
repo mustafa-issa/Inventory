@@ -21,6 +21,7 @@ namespace DataAccess
                 SqlCommand cmd = new SqlCommand("Add", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@ProductId", ObjBO.ProductId);
                 cmd.Parameters.AddWithValue("@Title", ObjBO.Title);
                 cmd.Parameters.AddWithValue("@Description", ObjBO.Description);
                 cmd.Parameters.AddWithValue("@Price", ObjBO.Price);
