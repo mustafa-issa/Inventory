@@ -11,7 +11,15 @@
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 							<table id="jqgrid"></table>
-							<div id="pjqgrid"></div>
+
+                         <button id="btn" onclick="myFunction()" class="ui-pg-button ui-corner-all">
+                         
+                         <span class="fa fa-trash-o"></span>
+                       </button>
+                        
+                 
+                       
+						   <div id="pjqgrid"></div>
 
 							<br>
 							<a href="javascript:void(0)" id="m1">Get Selected id's</a>
@@ -35,45 +43,50 @@
 		<script type="text/javascript">
 		    $(document).ready(function () {
 		        pageSetUp();
-		   
-		        var jqgrid_data = "data/1.json";
-
+	
 		        jQuery("#jqgrid").jqGrid({
-		            data: jqgrid_data,
-		            datatype: "local",
+            
+		            url: 'api/products',
+		            datatype: "json",
 		            height: 'auto',
-		            colNames: ['Actions', 'Inv No', 'Date', 'Client', 'Amount', 'Tax', 'Total', 'Notes'],
+		            colNames: ['ProductId', 'Title', 'Description', 'Price', 'Quantity', 'Status', 'InsertDate', 'UpdateDate','CategoryId'],
 		            colModel: [{
-		                name: 'act',
-		                index: 'act',
+		                name: 'ProductId',
+		                index: 'ProductId',
 		                sortable: false
 		            }, {
-		                name: 'id',
-		                index: 'id'
+		                name: 'Title',
+		                index: 'Title'
 		            }, {
-		                name: 'date',
-		                index: 'date',
+		                name: 'Description',
+		                index: 'Description',
 		                editable: true
 		            }, {
-		                name: 'name',
-		                index: 'name',
+		                name: 'Price',
+		                index: 'Price',
 		                editable: true
 		            }, {
-		                name: 'amount',
-		                index: 'amount',
+		                name: 'Quantity',
+		                index: 'Quantity',
 		                align: "right",
 		                editable: true
 		            }, {
-		                name: 'tax',
-		                index: 'tax',
+		                name: 'Status',
+		                index: 'Status',
 		                align: "right",
 		                editable: true
 		            }, {
-		                name: 'total',
-		                index: 'total',
+		                name: 'InsertDate',
+		                index: 'InsertDate',
 		                align: "right",
 		                editable: true
 		            }, {
+		                name: 'note',
+		                index: 'note',
+		                sortable: false,
+		                editable: true
+		            },
+		            {
 		                name: 'note',
 		                index: 'note',
 		                sortable: false,
@@ -86,8 +99,9 @@
 		            toolbarfilter: true,
 		            viewrecords: true,
 		            sortorder: "asc",
+
 		            gridComplete: function () {
-		                var ids = jQuery("#jqgrid").jqGrid('getDataIDs');
+		                var ids = jQuery("#jqgrid").jqGrid('getDataIDs');  // var gr = jQuery("#jqgrid").jqGrid('getGridParam', 'selrow');
 		                for (var i = 0; i < ids.length; i++) {
 		                    var cl = ids[i];
 		                    be = "<button class='btn btn-xs btn-default' data-original-title='Edit Row' onclick=\"jQuery('#jqgrid').editRow('" + cl + "');\"><i class='fa fa-pencil'></i></button>";
@@ -98,14 +112,21 @@
 		                    jQuery("#jqgrid").jqGrid('setRowData', ids[i], {
 		                        act: be + se + ca
 		                    });
+
+		                  
 		                }
-		            },
+		            }
+                     
+                    ,
+
 		            editurl: "dummy.html",
 		            caption: "SmartAdmin jQgrid Skin",
 		            multiselect: true,
 		            autowidth: true,
 
 		        });
+
+
 		        jQuery("#jqgrid").jqGrid('navGrid', "#pjqgrid", {
 		            edit: false,
 		            add: false,
@@ -117,52 +138,74 @@
 		            container: 'body'
 		        });
 
-		        jQuery("#m1").click(function () {
-		            var s;
-		            s = jQuery("#jqgrid").jqGrid('getGridParam', 'selarrrow');
-		            alert(s);
+		        jQuery("#btn").click(function () { 
+	
+		            $("#jqgrid input:checkbox").each(function () {
+		                if (this.checked) {
+		                    $(this).remove();
+		                }
+		                return false;  
+
+		                $.ajax({
+		                    type: "DELETE",
+		                    url: "api/products",
+		                    data: "json",
+		                    cache: false,
+		                    success: function (html) { $("#Result").html(html); }
+		                });
+
+		            });
 		        });
-		        jQuery("#m1s").click(function () {
-		            jQuery("#jqgrid").jqGrid('setSelection', "13");
-		        });
 
-		        // remove classes
-		        $(".ui-jqgrid").removeClass("ui-widget ui-widget-content");
-		        $(".ui-jqgrid-view").children().removeClass("ui-widget-header ui-state-default");
-		        $(".ui-jqgrid-labels, .ui-search-toolbar").children().removeClass("ui-state-default ui-th-column ui-th-ltr");
-		        $(".ui-jqgrid-pager").removeClass("ui-state-default");
-		        $(".ui-jqgrid").removeClass("ui-widget-content");
 
-		        // add classes
-		        $(".ui-jqgrid-htable").addClass("table table-bordered table-hover");
-		        $(".ui-jqgrid-btable").addClass("table table-bordered table-striped");
 
-		        $(".ui-pg-div").removeClass().addClass("btn btn-sm btn-primary");
-		        $(".ui-icon.ui-icon-plus").removeClass().addClass("fa fa-plus");
-		        $(".ui-icon.ui-icon-pencil").removeClass().addClass("fa fa-pencil");
-		        $(".ui-icon.ui-icon-trash").removeClass().addClass("fa fa-trash-o");
-		        $(".ui-icon.ui-icon-search").removeClass().addClass("fa fa-search");
-		        $(".ui-icon.ui-icon-refresh").removeClass().addClass("fa fa-refresh");
-		        $(".ui-icon.ui-icon-disk").removeClass().addClass("fa fa-save").parent(".btn-primary").removeClass("btn-primary").addClass("btn-success");
-		        $(".ui-icon.ui-icon-cancel").removeClass().addClass("fa fa-times").parent(".btn-primary").removeClass("btn-primary").addClass("btn-danger");
+		                jQuery("#m1s").click(function () {
+		                    jQuery("#jqgrid").jqGrid('setSelection', "13");
+		                });
 
-		        $(".ui-icon.ui-icon-seek-prev").wrap("<div class='btn btn-sm btn-default'></div>");
-		        $(".ui-icon.ui-icon-seek-prev").removeClass().addClass("fa fa-backward");
 
-		        $(".ui-icon.ui-icon-seek-first").wrap("<div class='btn btn-sm btn-default'></div>");
-		        $(".ui-icon.ui-icon-seek-first").removeClass().addClass("fa fa-fast-backward");
 
-		        $(".ui-icon.ui-icon-seek-next").wrap("<div class='btn btn-sm btn-default'></div>");
-		        $(".ui-icon.ui-icon-seek-next").removeClass().addClass("fa fa-forward");
 
-		        $(".ui-icon.ui-icon-seek-end").wrap("<div class='btn btn-sm btn-default'></div>");
-		        $(".ui-icon.ui-icon-seek-end").removeClass().addClass("fa fa-fast-forward");
+		                // remove classes
+		                $(".ui-jqgrid").removeClass("ui-widget ui-widget-content");
+		                $(".ui-jqgrid-view").children().removeClass("ui-widget-header ui-state-default");
+		                $(".ui-jqgrid-labels, .ui-search-toolbar").children().removeClass("ui-state-default ui-th-column ui-th-ltr");
+		                $(".ui-jqgrid-pager").removeClass("ui-state-default");
+		                $(".ui-jqgrid").removeClass("ui-widget-content");
 
-		    })
+		                // add classes
+		                $(".ui-jqgrid-htable").addClass("table table-bordered table-hover");
+		                $(".ui-jqgrid-btable").addClass("table table-bordered table-striped");
 
-		    $(window).on('resize.jqGrid', function () {
-		        $("#jqgrid").jqGrid('setGridWidth', $("#content").width());
-		    })
+		                $(".ui-pg-div").removeClass().addClass("btn btn-sm btn-primary");
+		                $(".ui-icon.ui-icon-plus").removeClass().addClass("fa fa-plus");
+		                $(".ui-icon.ui-icon-pencil").removeClass().addClass("fa fa-pencil");
+		                $(".ui-icon.ui-icon-trash").removeClass().addClass("fa fa-trash-o");
+		                $(".ui-icon.ui-icon-search").removeClass().addClass("fa fa-search");
+		                $(".ui-icon.ui-icon-refresh").removeClass().addClass("fa fa-refresh");
+		                $(".ui-icon.ui-icon-disk").removeClass().addClass("fa fa-save").parent(".btn-primary").removeClass("btn-primary").addClass("btn-success");
+		                $(".ui-icon.ui-icon-cancel").removeClass().addClass("fa fa-times").parent(".btn-primary").removeClass("btn-primary").addClass("btn-danger");
+
+		                $(".ui-icon.ui-icon-seek-prev").wrap("<div class='btn btn-sm btn-default'></div>");
+		                $(".ui-icon.ui-icon-seek-prev").removeClass().addClass("fa fa-backward");
+
+		                $(".ui-icon.ui-icon-seek-first").wrap("<div class='btn btn-sm btn-default'></div>");
+		                $(".ui-icon.ui-icon-seek-first").removeClass().addClass("fa fa-fast-backward");
+
+		                $(".ui-icon.ui-icon-seek-next").wrap("<div class='btn btn-sm btn-default'></div>");
+		                $(".ui-icon.ui-icon-seek-next").removeClass().addClass("fa fa-forward");
+
+		                $(".ui-icon.ui-icon-seek-end").wrap("<div class='btn btn-sm btn-default'></div>");
+		                $(".ui-icon.ui-icon-seek-end").removeClass().addClass("fa fa-fast-forward");
+
+		            }
+
+            )
+
+		            $(window).on('resize.jqGrid', function () {
+		                $("#jqgrid").jqGrid('setGridWidth', $("#content").width());
+		            } )
+		         
 
         </script>
 

@@ -9,8 +9,9 @@ using System.Data;
 
 namespace Bussinesslogic
 {
-   public class ProductsBL
+   public class ProductsBL : ProductsBO
     {
+
         public int InsertProductsBL(ProductsBO ObjProductsBL) // passing Bussiness object Here 
         {
             try
@@ -26,12 +27,12 @@ namespace Bussinesslogic
 
         }
 
-        public int DeleteProductsBL(ProductsBO ObjProductsBL)
+        public ProductsBO DeleteProductsBL(int ProductId)
         {
             try
             {
                 ProductsDA ObjProductsDA = new ProductsDA();
-                return ObjProductsDA.DeleteProducts(ObjProductsBL);
+                return ObjProductsDA.DeleteProducts(ProductId);
             }
             catch
             {

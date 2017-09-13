@@ -21,6 +21,7 @@ namespace DataAccess
                 SqlCommand cmd = new SqlCommand("Add", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@ProductId", ObjBO.ProductId);
                 cmd.Parameters.AddWithValue("@Title", ObjBO.Title);
                 cmd.Parameters.AddWithValue("@Description", ObjBO.Description);
                 cmd.Parameters.AddWithValue("@Price", ObjBO.Price);
@@ -46,18 +47,19 @@ namespace DataAccess
             }
         }
 
-        public int DeleteProducts(ProductsBO Obj2BO)
+        public ProductsBO DeleteProducts(int ProductId)
         {
             try
             {
                 SqlCommand cmd = new SqlCommand("Delete", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@ProductId", Obj2BO.ProductId);
+                cmd.Parameters.AddWithValue("@ProductId", ProductId);
                 con.Open();
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                return Result;
+                ProductsBO ObjBO = new ProductsBO();
+                return ObjBO;
             }
 
             catch
@@ -215,6 +217,7 @@ namespace DataAccess
 
 
         }
+
         public double SelectPrice(ProductsBO ObjBO)
         {
 
