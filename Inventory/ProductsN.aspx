@@ -141,14 +141,30 @@
 		        jQuery("#btn").click(function () { 
 	
 		            $("#jqgrid input:checkbox").each(function () {
-		                if (this.checked) {
-		                    $(this).remove();
-		                }
-		                return false;  
+
+		                var s;
+		                s = jQuery("#jqgrid").jqGrid('getGridParam', 'selarrrow');
+		                alert(s);
+		                
+		                var table = $('#example').DataTable();
+
+		                $('#example tbody').on('click', 'tr', function () {
+		                    if ($(this).hasClass('selected')) {
+		                        $(this).removeClass('selected');
+		                    }
+		                    else {
+		                        table.$('tr.selected').removeClass('selected');
+		                        $(this).addClass('selected');
+		                    }
+		                });
+
+		                $('#button').click(function () {
+		                    table.row('.selected').remove().draw(false);
+		                });
 
 		                $.ajax({
 		                    type: "DELETE",
-		                    url: "api/products",
+		                    url: "api/products/" + ProductId ,
 		                    data: "json",
 		                    cache: false,
 		                    success: function (html) { $("#Result").html(html); }
